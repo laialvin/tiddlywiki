@@ -141,6 +141,8 @@ Error message and password prompt
 
 <p>This <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">TiddlyWiki</a> contains the following tiddlers:</p><p><ul>
 
+<li>$:/config/RelinkOnRename</li>
+
 <li>$:/core</li>
 
 <li>$:/DefaultTiddlers</li>
@@ -171,11 +173,7 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
-<li>Draft of '$:/ControlPanel'</li>
-
 <li>Mathematics proof</li>
-
-<li>New Tiddler</li>
 
 </ul>
 </p>
@@ -191,6 +189,9 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
+<div created="20210227195947935" modified="20210227195954121" title="$:/config/RelinkOnRename">
+<pre>no</pre>
+</div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" name="Core" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.23">
 <pre>{
     &quot;tiddlers&quot;: {
@@ -10082,13 +10083,13 @@ Error message and password prompt
 <div created="20210210162518066" modified="20210210162518066" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20210210162512321" modified="20210210162512321" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Tools</pre>
+<div created="20210210162512321" modified="20210227195934772" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Open</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210227195816766" list="[[Draft of '$:/ControlPanel']] [[New Tiddler]] GettingStarted!xx" modified="20210227195816766" title="$:/StoryList">
+<div created="20210227195816766" list="[[Mathematics proof]] GettingStarted!xx" modified="20210227195816766" title="$:/StoryList">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.23">
@@ -10200,43 +10201,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div color="#bbb" draft.of="$:/ControlPanel" draft.title="$:/ControlPanel" icon="$:/core/images/options-button" modified="20210227195832148" title="Draft of '$:/ControlPanel'">
-<pre>&lt;div class=&quot;tc-control-panel&quot;&gt;
-&lt;$macrocall $name=&quot;tabs&quot; tabsList=&quot;[all[shadows+tiddlers]tag[$:/tags/ControlPanel]!has[draft.of]]&quot; default=&quot;$:/core/ui/ControlPanel/Info&quot; explicitState=&quot;$:/state/tab-1749438307&quot;/&gt;
-&lt;/div&gt;
-</pre>
-</div>
-<div created="20210227195433275" modified="20210227195534671" tags="maths" title="Mathematics proof">
-<pre>! What is proof
-
-!! 1.1 命题
-
-`命题(proposition)` 一个能判断真假的句子或陈述。
-
-`公理(axiom)`不证自明的命题。
-
-!! 1.2 谓词
-
-`谓词(predicate)`真假性与一个或多个变量相关的命题。
-
-通常使用 ''P'' 表示，例：
-
-P(n) ::= &quot;n 是完全平方数&quot;
-
-断言 P(4) 为真，P(5) 为假。
-
-与`函数`的区别:
-# 谓词的结果是真或者假
-# 函数结果为数值
-
-;`逻辑推导(logical dedution)` 或者 `推理规则(inference rule)`
-:是指基于已被证明的命题来证明新的命题。
-
-;`证明(proof)`
-:是基于一系列//公理//，经过一连串//逻辑推理//，最后得出一个//命题//。
- -- //(??循环定义了?)//</pre>
-</div>
-<div created="20210227195648336" modified="20210227195652735" tags="" title="New Tiddler">
+<div created="20210227195648336" modified="20210227200001022" tags="" title="Mathematics proof">
 <pre>! What is proof
 
 !! 1.1 命题
