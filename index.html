@@ -47,7 +47,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." />
 <link id="faviconLink" rel="shortcut icon" href="favicon.ico">
-<title>My TiddlyWiki — a non-linear personal web notebook</title>
+<title>Alvin's TiddlyWiki — a non-linear personal web notebook</title>
 <!--~~ This is a Tiddlywiki file. The points of interest in the file are marked with this pattern ~~-->
 
 <!--~~ Raw markup ~~-->
@@ -149,6 +149,8 @@ Error message and password prompt
 
 <li>$:/config/RelinkOnRename</li>
 
+<li>$:/ControlPanel</li>
+
 <li>$:/core</li>
 
 <li>$:/DefaultTiddlers</li>
@@ -164,6 +166,8 @@ Error message and password prompt
 <li>$:/GitHub/Username</li>
 
 <li>$:/isEncrypted</li>
+
+<li>$:/SiteTitle</li>
 
 <li>$:/state/advancedsearch/currentTab</li>
 
@@ -222,6 +226,12 @@ Error message and password prompt
 </div>
 <div created="20210227195947935" modified="20210227195954121" title="$:/config/RelinkOnRename">
 <pre>no</pre>
+</div>
+<div color="#bbb" created="20210309095519201" icon="$:/core/images/options-button" modified="20210309095519201" title="$:/ControlPanel">
+<pre>&lt;div class=&quot;tc-control-panel&quot;&gt;
+&lt;$macrocall $name=&quot;tabs&quot; tabsList=&quot;[all[shadows+tiddlers]tag[$:/tags/ControlPanel]!has[draft.of]]&quot; default=&quot;$:/core/ui/ControlPanel/Info&quot; explicitState=&quot;$:/state/tab-1749438307&quot;/&gt;
+&lt;/div&gt;
+</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" name="Core" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.23">
 <pre>{
@@ -10108,6 +10118,9 @@ Error message and password prompt
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
+<div created="20210309095433852" modified="20210309095437561" title="$:/SiteTitle">
+<pre>Alvin's TiddlyWiki</pre>
+</div>
 <div created="20210227200441590" modified="20210227200445985" title="$:/state/advancedsearch/currentTab">
 <pre>$:/core/ui/AdvancedSearch/Filter</pre>
 </div>
@@ -10126,8 +10139,8 @@ Error message and password prompt
 <div created="20210227200441590" modified="20210227200445985" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/Filter</pre>
 </div>
-<div created="20210210162516087" modified="20210210162516087" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Saving</pre>
+<div created="20210210162516087" modified="20210309095359278" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Info</pre>
 </div>
 <div created="20210210162518066" modified="20210309001013053" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/General</pre>
@@ -10135,13 +10148,13 @@ Error message and password prompt
 <div created="20210227200132334" modified="20210309001033928" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/Shadows</pre>
 </div>
-<div created="20210210162512321" modified="20210309014028232" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div created="20210210162512321" modified="20210309095354662" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Tools</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div list="GettingStarted!" title="$:/StoryList">
+<div created="20210309095356095" list="$:/ControlPanel GettingStarted!" modified="20210309095356095" title="$:/StoryList">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.23">
