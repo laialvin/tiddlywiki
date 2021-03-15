@@ -1,5 +1,5 @@
 created: 20210315020342012
-modified: 20210315020617468
+modified: 20210315100538676
 tags: algorithm string
 title: KMP
 type: text/vnd.tiddlywiki
@@ -12,12 +12,29 @@ type: text/vnd.tiddlywiki
 
 ;''字符串''
 : W = w,,0,,w,,1,,w,,2,,...w,,n-1,, ， 其中 w,,i,, 为任意字符
+
 ;''字符串长度''
 : |W| = n
+
 ;''字符串子串''
 : W[i..j] = w,,i,,w,,i+1,,...w,,j,, ， 其中 i, j 
 
+;问题描述形式化为
+: 给定 S = s,,0,,s,,1,,s,,2,,..s,,n-1,,, 模式串 P = p,,0,,p,,1,,p,,2,,..p,,m-1,,, 其中 n >= m, 找出所有 i 满足 S[i..i+m-1] = P
 
+假设当前匹配到 i 位置，满足 S[i..j] = P[0..j] 且 S[j+1] ≠ P[j+1]，如果 S[k..k+m-1] = P 且 i < k <= j
+
+| s,,i,, | s,,i+1,, | s,,i+2,, | ..| s,,k,, | .. | s,,j,, | s,,j+1,,|
+| p,,0,,| p,,1,, | p,,2,, |..| p,,k,,| .. | p,,j,,| p,,j+1,,|
+| | | | .. | p,,0,, | ..| p,,j-k,,| p,,j-k+1,,|
+
+```
+          S[k..j] = P[k..j] 又 S[k..j] = P[0..j-k]
+所以:
+          P[0..j-k] = P[k..j]
+令：
+          next[j] = k
+```
 ! Ref
 ----
 [[https://zh.wikipedia.org/wiki/KMP%E7%AE%97%E6%B3%95]]
