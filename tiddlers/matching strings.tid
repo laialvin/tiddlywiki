@@ -1,0 +1,23 @@
+created: 20210315004836337
+modified: 20210315020305507
+tags: algorithm bm string
+title: matching strings
+type: text/vnd.tiddlywiki
+
+! ''精确匹配''
+!! BF
+----
+`Brute Force`
+
+!! BM
+----
+
+
+! ''模糊匹配''
+
+!! Ref
+----
+[[Boyer-Moore|http://www.cs.jhu.edu/~langmea/resources/lecture_notes/boyer_moore.pdf]]
+
+[[http://www.langmead-lab.org/teaching-materials/]]
+

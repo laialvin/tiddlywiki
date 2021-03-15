@@ -1,0 +1,61 @@
+created: 20210315022753203
+modified: 20210315030256392
+tags: 
+title: Linking local images on nodejs version of tiddlywiki
+type: text/vnd.tiddlywiki
+
+see [[https://stackoverflow.com/questions/28614507/how-to-link-to-local-images-on-node-js-version-of-tiddlywiki]]
+
+<<<
+Currently there is no way to point to a local file through the node.js version of Tiddlywiki as node.js is not a webserver, therefore it does not see subfolders like /images/ off of the root url. 
+<<<
+
+Be enlighted by [[https://groups.google.com/g/tiddlywiki/c/qI3FM_umbKI/m/GH3zX5kguDkJ]]
+
+I setup nginx like this
+
+
+```
+nginx.conf
+----
+http {
+    upstream tiddlywiki {
+	    server 127.0.0.1:9911;
+	}
+
+	server {
+        listen       9910;
+		location / {
+			proxy_set_header    X-FORWARDED-FOR $remote_addr;
+			proxy_set_header    X-FORWARDED-PROTO $scheme;
+			proxy_set_header    Host   $http_host;
+			proxy_pass          http://tiddlywiki;
+			proxy_http_version 1.1;
+			proxy_set_header Connection "";
+			proxy_read_timeout  6000;
+			proxy_intercept_errors on;
+			add_header X-XSS-Protection '0';
+			add_header Strict-Transport-Security max-age=31536000;
+
+		}
+		
+		location /images/ {
+		    root D:\learngin\tiddlywiki;
+		}
+    }
+}
+```
+
+Create a folder `images` under `D:\mynewwiki`，using `img`
+ as following to link a local image
+
+```
+[img[./images/image_name]]
+```
+
+And then start nginx and tiddlywiki
+
+```
+start nginx
+tddlywiki tiddlywiki --listen port=9911
+```

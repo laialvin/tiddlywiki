@@ -1,0 +1,11 @@
+created: 20210315005220949
+modified: 20210315015924820
+tags: security ssl tls
+title: SSL/TLS handshaking steps
+type: text/vnd.tiddlywiki
+
+[img[./images/HTTPS-message-sequence-diagram-with-detailed-TLS-handshaking-steps.png]]
+
+!ref
+----
+[[Are wearable devices ready for HTTPS? Measuring the cost of secure communication protocols on wearable devices|https://www.researchgate.net/publication/306187575_Are_wearable_devices_ready_for_HTTPS_Measuring_the_cost_of_secure_communication_protocols_on_wearable_devices]]
