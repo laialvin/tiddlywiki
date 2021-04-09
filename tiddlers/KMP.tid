@@ -1,6 +1,6 @@
 created: 20210315020342012
-modified: 20210315100538676
-tags: algorithm string
+modified: 20210326005452120
+tags: algorithm string todo
 title: KMP
 type: text/vnd.tiddlywiki
 
@@ -22,19 +22,37 @@ type: text/vnd.tiddlywiki
 ;问题描述形式化为
 : 给定 S = s,,0,,s,,1,,s,,2,,..s,,n-1,,, 模式串 P = p,,0,,p,,1,,p,,2,,..p,,m-1,,, 其中 n >= m, 找出所有 i 满足 S[i..i+m-1] = P
 
-假设当前匹配到 i 位置，满足 S[i..j] = P[0..j] 且 S[j+1] ≠ P[j+1]，如果 S[k..k+m-1] = P 且 i < k <= j
+假设当前匹配到 i 位置，满足 S[i..j] = P[0..j] 且 S[j+1] ≠ P[j+1]，如果 S[k..k+m-1] = P 且 i < k <= j，而 k 最小
 
 | s,,i,, | s,,i+1,, | s,,i+2,, | ..| s,,k,, | .. | s,,j,, | s,,j+1,,|
 | p,,0,,| p,,1,, | p,,2,, |..| p,,k,,| .. | p,,j,,| p,,j+1,,|
 | | | | .. | p,,0,, | ..| p,,j-k,,| p,,j-k+1,,|
 
-```
-          S[k..j] = P[k..j] 又 S[k..j] = P[0..j-k]
+$$
+S[k..j] = P[k..j] \\
+又 S[k..j] = P[0..j-k] \\
 所以:
-          P[0..j-k] = P[k..j]
+          P[0..j-k] = P[k..j]\\
 令：
-          next[j] = k
-```
+          next[j+1] = |P[0..j-k]| = j - k + 1 = j + 1 - k\\
+则: 
+          k = j+1 - next[j+1] \\
+替换变量得
+          k = j - next[j] \\
+令:
+          next[j] = n_j \\
+则：
+          P[0..n_j-1] = P[j-n_j..j-1] \\
+如果:
+          P[j] = P[n_j]  \\
+则：
+          P[0..n_j] = P[j-n_j..j] \\
+          next[j+1] = |P[0..n_j| = n_j + 1 = next[j] + 1 \\
+如果:
+          P[j] \not = P[n_j]  \\
+假设已知 next[n_j] = n_{n_j}，递归判断 P[j] 是否等于 P[n_{n_j}]
+$$
+
 ! Ref
 ----
 [[https://zh.wikipedia.org/wiki/KMP%E7%AE%97%E6%B3%95]]

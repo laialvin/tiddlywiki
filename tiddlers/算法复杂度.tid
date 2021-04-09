@@ -1,0 +1,14 @@
+created: 20210402001913205
+creator: alvin
+modified: 20210402003627789
+modifier: alvin
+tags: algorithm
+title: 算法复杂度
+type: text/vnd.tiddlywiki
+
+| !符号 | !含义 |
+| Θ |等于 |
+| Ο |上界，小于等于 |
+| o |上界，小于 |
+| Ω |下界，大于等于 |
+| ω |下界，大于 |

@@ -1,0 +1,28 @@
+created: 20210326004729830
+modified: 20210326005442769
+tags: algorithm tree todo
+title: Trie
+type: text/vnd.tiddlywiki
+
+! ''Trie''
+---
+美[traɪ]
+
+!! Structure
+!! Operations
+# Find
+# Successor and Predecessor
+# Insert
+# Delete
+
+! ''Bitwise Trie''
+---
+
+! ''X-fast trie''
+---
+
+
+! ''Ref''
+---
+# [[http://web.stanford.edu/class/archive/cs/cs166/cs166.1146/lectures/15/Small15.pdf]]
+# [[https://en.wikipedia.org/wiki/Trie#Bitwise_tries]]

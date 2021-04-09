@@ -1,0 +1,48 @@
+created: 20210326003354687
+creator: alvin
+modified: 20210408015145004
+modifier: alvin
+tags: tiddlywiki
+title: Installing TiddlyWiki on Node.js
+type: text/vnd.tiddlywiki
+
+# Install [[Node.js]]
+#* either from your favourite package manager: typically `apt-get install nodejs` on Debian/Ubuntu Linux or [[Termux for Android|Serving TW5 from Android]], or `brew install node` on a Mac
+#* or directly from http://nodejs.org
+# Open a command line terminal and type:
+#> `npm install -g tiddlywiki`
+#> If it fails with an error you may need to re-run the command as an administrator:
+#> `sudo npm install -g tiddlywiki` (Mac/Linux)
+# Check TiddlyWiki is installed by typing:
+#> `tiddlywiki --version`
+# In response, you should see TiddlyWiki report its current version (eg "<<version>>"; you may also see other debugging information reported)
+# Try it out:
+## `tiddlywiki mynewwiki --init server` to create a folder for a new wiki that includes server-related components
+## `tiddlywiki mynewwiki --listen` to start TiddlyWiki
+## Visit http://127.0.0.1:8080/ in your browser
+## Try editing and creating tiddlers
+## To custom listen port, use  `tiddlywiki mynewwiki --listen port=9910`.
+# Authenticated Access:
+#> `tiddlywiki mynewwiki --listen username=test password=tset`
+# Anonymous Read, Authenticated Write:
+#> `tiddlywiki mywikifolder --listen "readers=(anon)" writers=joe username=joe password=bloggs
+`
+#* //Note that anonymous users can trigger a username/password prompt by visiting the route `\login-basic` (eg [[http://127.0.0.1:8080/login-basic]]).//
+# Optionally, make an offline copy:
+#* click the <<.icon $:/core/images/save-button>> ''save changes'' button in the sidebar, ''OR''
+#* `tiddlywiki mynewwiki --build index`
+
+The `-g` flag causes TiddlyWiki to be installed globally. Without it, TiddlyWiki will only be available in the directory where you installed it.
+
+If you are using Debian or Debian-based Linux and you are receiving a `node: command not found` error though node.js package is installed, you may need to create a symbolic link between `nodejs` and `node`. Consult your distro's manual and `whereis` to correctly create a link. See github [[issue 1434|http://github.com/Jermolene/TiddlyWiki5/issues/1434]]
+
+Example Debian v8.0: `sudo ln -s /usr/bin/nodejs /usr/bin/node`
+
+You can also install prior versions like this:
+
+> npm install -g tiddlywiki@5.1.13
+
+
+! Ref
+# [[Installing TiddlyWiki on Node.js|https://tiddlywiki.com/static/Installing%2520TiddlyWiki%2520on%2520Node.js.html]]
+# [[https://tiddlywiki.com/static/WebServer.html]]

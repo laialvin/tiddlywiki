@@ -1,0 +1,27 @@
+created: 20210326090509604
+creator: alvin
+modified: 20210408054422743
+modifier: alvin
+tags: ssl tls security
+title: openssl 生成 ssl 证书流程
+type: text/vnd.tiddlywiki
+
+<div class="tc-table-of-contents">
+<<toc "Contents">>
+</div>
+
+! ''X509 证书链''
+!! ''XT509 证书结构''
+https://blog.csdn.net/weixin_36293343/article/details/85090852
+
+! Demo
+```
+openssl genrsa -out ca-key.pem 1024
+openssl req -new -key ca-key.pem -out ca-req.csr -subj "/C=CN/ST=BJ/L=BJ/O=mflai/OU=mflai/CN=CA"
+openssl x509 -req -in ca-req.csr -out ca-cert.pem -signkey ca-key.pem -days 3650
+
+openssl genrsa -out server-key.pem 1024
+openssl req -new -out server-req.csr -key server-key.pem -subj "/C=CN/ST=BJ/L=BJ/O=mflai/OU=mflai/CN=*.mflai.com"
+openssl x509 -req -in server-req.csr -out server-cert.pem -signkey server-key.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -days 3650
+openssl pkcs12 -export -clcerts -in server-cert.pem -inkey server-key.pem -out server.p12
+```

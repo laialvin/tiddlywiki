@@ -1,0 +1,28 @@
+created: 20210408015339691
+creator: alvin
+modified: 20210408053827984
+modifier: alvin
+tags: ssl tls tcp
+title: Capture ssl/tsl packets using wireshark
+type: text/vnd.tiddlywiki
+
+! ''摘要''
+在开启 ssl/tls 数据加密传输的通讯中，由于数据包都经过加密处理，使用抓包软件抓取后的数据不可读，不利于开发调试。本文论述使用抓包软件 wireshark 抓取 ssl/tsl 数据包进行自动解密的方法。
+
+! ''使用服务器证书私钥进行解密''
+这种情况最为简单，前提是拥有服务器的证书私钥。
+
+直接将 server 的 p12 格式证书导入到 wiresharks 里面即可顺利解密
+
+# 在Wireshark中，进入菜单 Edit -> Preferences...。
+# 展开 Protocols -> SSL 或者 TLS，点击 Edit 按钮编辑 RSA key lists。[img[./images/capture_ssl_tsl_packets_using_wireshark/1.png]]
+# 配置如下：
+## IP address：目标服务器的IP地址，也可以填写 "any" 应用到所有IP地址。
+## Port：HTTPS端口号，一般均为："443"。
+## Protocol：填写 "http"。
+## Key File：选取刚才导出的服务器证书私钥（p12 / PFX文件）。
+## Password：输入服务器证书私钥的密码。[img[./images/capture_ssl_tsl_packets_using_wireshark/2.png]]
+# 现在可以解密数据包了 [img[./images/capture_ssl_tsl_packets_using_wireshark/3.png]][img[./images/capture_ssl_tsl_packets_using_wireshark/4.png]]
+
+!! Ref
+[[https://joji.me/zh-cn/blog/walkthrough-decrypt-ssl-tls-traffic-https-and-http2-in-wireshark/]]
