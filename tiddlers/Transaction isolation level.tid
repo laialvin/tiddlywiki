@@ -1,0 +1,9 @@
+created: 20211108012756901
+creator: alvin
+modified: 20211108013430582
+modifier: alvin
+tags: transaction isolation
+title: Transaction isolation level
+type: text/vnd.tiddlywiki
+
+[[4 types isolication levels explanation|https://docs.microsoft.com/en-us/sql/odbc/reference/develop-app/transaction-isolation-levels?view=sql-server-ver15]]

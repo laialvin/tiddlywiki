@@ -1,12 +1,14 @@
 caption: {{$:/language/SideBar/Contents/Caption}}
 created: 20210402002344767
 creator: alvin
+draft.of: TableOfContents
+draft.title: TableOfContents
 list: algorithm
 list-after: $:/core/ui/SideBar/Open
-modified: 20211108020157184
+modified: 20211108020201608
 modifier: alvin
 tags: $:/tags/SideBar
-title: TableOfContents
+title: Draft of 'TableOfContents' by alvin
 type: text/vnd.tiddlywiki
 
 <div class="tc-table-of-contents">

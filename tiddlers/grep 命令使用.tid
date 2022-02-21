@@ -1,0 +1,31 @@
+created: 20210414064415762
+creator: alvin
+modified: 20210804081154833
+modifier: alvin
+tags: shell linux
+title: grep 命令使用
+type: text/vnd.tiddlywiki
+
+grep 常用命令
+
+! 只输出命中的字符串
+
+```
+sautil callapi '{cmd:5,user_at_domain:user1@mflai.com,attrs:"cookiecheck=1"}'
+API_SENT: 127.0.0.1/127.0.0.1:6195 {cmd=5, user_at_domain=user1@mflai.com, attrs=cookiecheck=1}
+API_RECV: OK [MAP:(size=2):...]:
+        retcode: [INT:0]
+        result: [WST:BATdtoUUQvIXPzeYgRUUVPKtFKmouwBz]
+```
+# 输出命中行
+```
+sautil callapi '{cmd:5,user_at_domain:user1@mflai.com,attrs:"cookiecheck=1"}' | grep result
+        result: [WST:BAudtoUUeaIXPzIYgRUUwKrmlgmouwBz]
+```
+# 使用正则零宽度断言提取一行中的部分结果
+```
+sautil callapi '{cmd:5,user_at_domain:user1@mflai.com,attrs:"cookiecheck=1"}' | grep -oP '(?<=WST\:)\w+(?!])'
+BArhXUuuwKlfMHHIduINCxKkpPMqhAl
+```
+
+
