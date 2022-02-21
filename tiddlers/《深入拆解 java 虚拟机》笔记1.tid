@@ -1,0 +1,88 @@
+created: 20220221142301377
+creator: alvin
+modified: 20220221152233104
+modifier: alvin
+tags: geektime jvm
+title: 《深入拆解 java 虚拟机》笔记1
+type: text/vnd.tiddlywiki
+
+! [[Java 与 C++ 区别]]
+
+''java 程序依赖 JRE 环境，c++ 程序直接编译为机器码，能独立运行''
+
+以下以打印 "Hello, Word!\n" 为例，先看 C++ 代码编译出来的机器码，如下：
+
+ ```
+; 最左列是偏移；中间列是给机器读的机器码；最右列是给人读的汇编代码
+0x00:  55                    push   rbp
+0x01:  48 89 e5              mov    rbp,rsp
+0x04:  48 83 ec 10           sub    rsp,0x10
+0x08:  48 8d 3d 3b 00 00 00  lea    rdi,[rip+0x3b] 
+                                    ; 加载"Hello, World!\n"
+0x0f:  c7 45 fc 00 00 00 00  mov    DWORD PTR [rbp-0x4],0x0
+0x16:  b0 00                 mov    al,0x0
+0x18:  e8 0d 00 00 00        call   0x12
+                                    ; 调用printf方法
+0x1d:  31 c9                 xor    ecx,ecx
+0x1f:  89 45 f8              mov    DWORD PTR [rbp-0x8],eax
+0x22:  89 c8                 mov    eax,ecx
+0x24:  48 83 c4 10           add    rsp,0x10
+0x28:  5d                    pop    rbp
+0x29:  c3                    ret
+```
+
+而 java 程序是编译为中间代码，这种中间代码的操作符一般是以一个字节为单位，所以又称为[[字节码]]：
+
+```
+
+# 最左列是偏移；中间列是给虚拟机读的机器码；最右列是给人读的代码
+0x00:  b2 00 02         getstatic java.lang.System.out
+0x03:  12 03            ldc "Hello, World!"
+0x05:  b6 00 04         invokevirtual java.io.PrintStream.println
+0x08:  b1               return
+```
+
+
+通常 java 的字节码比机器码更为简短，原因为[[字符码抽象程度为高]]。
+
+
+
+! [[HotSpot 是怎样执行 java 程序的]]
+
+!! 内存模型
+
+[img[./images/深入拆解java虚拟机/1/1.webp]]
+
+# 被所有线程共享部分
+## class 文件加载后存入在[[方法区(Method Area)]]
+## 对象存放在[[堆]]
+# 线程私有
+## 面向 java 方法的 [[java方法栈]]（编译时可以确定栈的大小）（不要求在内存空间中连接分布），存放局部变量和字符码操作数。
+## 面向本地方法（使用 C++ 写的 native 方法）[[本地方法栈]]
+## 指示程序执行位置的 [[PC 寄存器]]
+
+!! 字节码执行
+
+Java 字节码无法直接执行，需要经过 java 虚拟机翻译成对应的机器码。有两种翻译方式
+
+[img[./images/深入拆解java虚拟机/1/2.webp]]
+
+''解释执行''
+
+将机器码逐条翻译成机器码并且同时执行。
+
+''即时编译（Just-In-Time compilation JIT）''
+
+将整个方法的所有字符码编译成机器码再执行。
+
+前者优势是无需等待，后者优势时执行速度快。 Java 会根据 2/8 原则，先使用解释执行，遇到热点方法的时候才使用 JIT 即时编译。
+
+HotSpot JIT 内置多种编译器：C1, C2 和 Graal (java 10)
+
+# C1: 又叫 「Client 编译器」，是面向 GUI 的编译器，特点是速度快。
+# C2: 又叫 「Server 编译器」，特点是优化手段复杂，代码的执行效果高。
+# Graal: TODO 待续
+
+Java 7 开始 HotSpot 默认使用分层编译模块，先使用 C1 编译，热点中的热点代码才使用 C2 编译，C1:C2 的比例为  1:2
+
+
