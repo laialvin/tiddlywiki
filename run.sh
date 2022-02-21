@@ -1,0 +1,1 @@
+tiddlywiki . --listen port=9010 username=alvin password=123
