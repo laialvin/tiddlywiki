@@ -1,0 +1,14 @@
+created: 20220301001830078
+creator: alvin
+modified: 20220301013526574
+modifier: alvin
+tags: geetime jvm loading linking initializing
+title: 《深入拆解 java 虚拟机》笔记2
+type: text/vnd.tiddlywiki
+
+!  Loading, Linking, and Initializing<a href="##ref1">[1]</a>
+
+
+
+! References
+<a id="#ref1">[[[1]Java Virtual Machine Specification #Chapter 5. Loading, Linking, and Initializing|https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-5.html]]</a>
